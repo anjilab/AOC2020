@@ -24,11 +24,18 @@ for (let i = 0; i < input.length; i++) {
 }
 
 highestSeat = seatArr.sort((a, b) => a - b)[input.length - 1]
-// console.log(highestSeat, seatArr.length);
-// console.dir(seatArr, {'maxArrayLength': null});
+// console.dir(seatArr, { 'maxArrayLength': null });
 
-for (let i = 0; i < seatArr.length; i++) {
+let loopStart = Math.ceil((seatArr.length / 4))
+let loopEnd = Math.ceil(seatArr.length / 2) + loopStart
+var yourSeatId = []
+
+for (let i = loopStart; i < loopEnd; i++) {
+    if (seatArr[i + 1] !== seatArr[i] + 1) {
+        yourSeatId.push(seatArr[i + 1], seatArr[i])
+    }
 }
+console.log(yourSeatId);
 
 
 
